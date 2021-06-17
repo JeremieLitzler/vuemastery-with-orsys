@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Movies</title>
+    <link rel="stylesheet" href="./libs/bootstrap4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/styles.css"/>
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <h1 class="title">Les films du moment</h1>
+        <div id="v-app">
+            <list-movies></list-movies>
+        </div>
+
+        <!-- NOS TEMPLATES CI-DESSOUS -->
+
+        <!-- TEMPLATE LIST MOVIES -->
+        <script type="text/template" id="template-list-movies">
+            <div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr></tr>
+
+                    <movie v-for="(movie, indexMovie) in movies"
+                           :key="movie.id"
+                           :id="movie.id"
+                           :editing="movie.editing"
+                           :title="movie.title"
+                           :description="movie.description"
+                           @deleteMovie="deleteMovie(indexMovie)"
+                           @editMovie="editMovie(movie)"
+                           @stopEditMovie="stopEdit(movie, indexMovie)"
+                           @updateMovie="updateMovie($event, indexMovie)" ></movie>
+                </table>
+
+                <p class="lead">
+                    <span v-if="movies.length">{{ movies.length }} film(s) au total</span>
+                    <span v-if="!movies.length">Aucun film pour le moment</span>
+
+                    <button @click="createMovie()" class="btn btn-primary">
+                        Ajouter un nouveau film
+                    </button>
+                </p>
+            </div>
+        </script>
+
+        <!-- TEMPLATE MOVIE -->
+        <script type="text/template" id="template-movie">
+            <tr>
+                <td>
+                    {{ id }}
+                </td>
+                <td>
+                    <input v-if="editing" v-model="movieCopy.title" class="form-control"/>
+                    <span v-else> {{ title }} </span>
+                </td>
+
+                <td class="col-md-6">
+                    <input v-if="editing" v-model="movieCopy.description" class="form-control"/>
+                    <span v-else>{{ description }}</span>
+                </td>
+                <td>
+                    <!-- MODE NON EDITION -->
+                    <div class="btn-group" v-if="!editing">
+                        <button @click="editMovie()" class="btn btn-default">
+                            Editer
+                        </button>
+                        <button @click="deleteMovie()" class="btn btn-danger">
+                            Supprimer
+                        </button>
+                    </div>
+
+                    <!-- MODE EDITION -->
+                    <div class="btn-group" v-else>
+                        <button v-if="id" class="btn btn-primary" @click="updateMovie()">
+                            Mettre à jour
+                        </button>
+                        <button v-else class="btn btn-success" @click="storeMovie()">
+                            Ajouter ce film
+                        </button>
+                        <button @click="stopEditMovie()" class="btn btn-default">
+                            Cancel
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </script>
+    </div>
+</main>
+
+<script src="./libs/vue.js"></script>
+<script src="./js/moviesService.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/Movie.js"></script>
+<script src="./js/ListMovies.js"></script>
+
+<script>
+    APP.mount('#v-app');
+</script>
+
+</body>
+
+</html>
