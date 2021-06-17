@@ -35,10 +35,13 @@
                     <p>{{ maxId }}</p>
                     <input type=" text" class="movie-name" v-model="name" placeholder="Input the movie name" />
                     <textarea class="movie-description" v-model="description" placeholder="Input the movie description"></textarea>
-                    <p class=" error" v-if="validationError">All fields are required.</p>
+                    <p class="movie-actions">
+                        <button class="modify-movie" @click="addMovie()">Save</button>
+                    </p>
                 </form>
             </li>
         </ul>
+        <p class=" error" v-if="validationError">All fields are required.</p>
         <div class="table-footer">
             <span v-if="movies">Number of movies: {{ movieCount }}</span>
             <span v-else="movies">Use the button to add a new movie</span>

@@ -22,6 +22,11 @@ button:focus {
 button:hover {
   border: 4px dashed black;
 }
+
+input,
+textarea {
+  min-height: 2em;
+}
 .delete-movie {
   background-color: red;
   color: white;
