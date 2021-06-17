@@ -3,29 +3,7 @@ const App = {
     return {
       validationError: false,
       newMovieFormDisplayed: false,
-      movies: [
-        {
-          id: 1,
-          name: 'Movie 1',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-          modifying: false,
-        },
-        {
-          id: 2,
-          name: 'Movie 2',
-          description:
-            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-          modifying: false,
-        },
-        {
-          id: 3,
-          name: 'Movie 3',
-          description:
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-          modifying: false,
-        },
-      ],
+      movies: [],
     };
   },
   computed: {
