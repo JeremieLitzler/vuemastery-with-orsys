@@ -16,10 +16,16 @@ button {
 }
 
 button:focus {
-  border: 4px dashed navy;
+  border: 4px dashed blue;
+}
+input:focus,
+textarea:focus {
+  border: 4px dashed greenyellow;
 }
 
-button:hover {
+button:hover,
+input:hover,
+textarea:hover {
   border: 4px dashed black;
 }
 

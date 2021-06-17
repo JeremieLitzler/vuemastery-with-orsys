@@ -13,7 +13,7 @@
     <div id="app">
         <ul class="movies table-header">
             <li class="movie">
-                <p class="movie-id">#</p>
+                <!-- <p class="movie-id">#</p> -->
                 <p class="movie-name">Name</p>
                 <p class="movie-description">Description</p>
                 <p class="movie-actions">Actions</p>
@@ -21,7 +21,7 @@
         </ul>
         <ul class="movies table-body">
             <li class="movie" v-for="movie in movies" :key="movie.id">
-                <p class="movie-id">{{ movie.id }}</p>
+                <!-- <p class="movie-id">{{ movie.id }}</p> -->
                 <p class="movie-name" v-if="!movie.modifying">{{ movie.name }}</p>
                 <input type="text" class="movie-name" v-if="movie.modifying" v-model="movie.name" />
                 <p class="movie-description" v-if="!movie.modifying">{{ movie.description }}</p>
@@ -33,8 +33,8 @@
             </li>
             <li v-if="newMovieFormDisplayed">
                 <form @submit.prevent="addMovie(name, description)" class="movie">
-                    <p>{{ maxId }}</p>
-                    <input type=" text" class="movie-name" v-model="name" placeholder="Input the movie name" />
+                    <!-- <p>{{ maxId }}</p> -->
+                    <input tabindex="0" type=" text" class="movie-name" v-model="name" placeholder="Input the movie name" />
                     <textarea class="movie-description" v-model="description" placeholder="Input the movie description"></textarea>
                     <p class="movie-actions">
                         <button class="modify-movie" @click="addMovie()">Save</button>

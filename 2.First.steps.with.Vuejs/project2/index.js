@@ -7,9 +7,6 @@ const App = {
     };
   },
   computed: {
-    maxId() {
-      return this.movies ? this.movies.length + 1 : 1;
-    },
     movieCount() {
       return this.movies ? this.movies.length : 0;
     },
@@ -22,7 +19,7 @@ const App = {
         this.validationError = true;
         return;
       }
-      const newMovieId = this.maxId;
+      const newMovieId = (+new Date()).toString();
       console.log('New Movie Id', newMovieId);
       const newMovie = {
         id: newMovieId,
