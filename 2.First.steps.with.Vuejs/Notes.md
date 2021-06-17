@@ -45,5 +45,3 @@ or
 ## Questions
 
 ### Quelle est la bonne pratique du refactoring des méthodes qui sont trop grandes
-
-###

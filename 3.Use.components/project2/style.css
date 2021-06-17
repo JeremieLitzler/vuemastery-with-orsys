@@ -1,0 +1,93 @@
+body {
+  max-width: 60em;
+  min-width: 20em;
+  margin: 0 auto;
+  border: 1px dashed blue;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  background-color: rgb(171, 245, 245);
+  padding: 0.5em 1em;
+  margin-left: 0.5em;
+  border-radius: 4px;
+  transform: scale(1);
+}
+
+button:focus {
+  border: 4px dashed blue;
+}
+input:focus,
+textarea:focus {
+  border: 4px dashed greenyellow;
+}
+
+button:hover,
+input:hover,
+textarea:hover {
+  border: 4px dashed black;
+}
+
+input,
+textarea {
+  min-height: 2em;
+}
+.delete-movie {
+  background-color: red;
+  color: white;
+}
+
+.add-movie {
+  background-color: blue;
+  color: white;
+}
+
+.table-header {
+  background-color: black;
+  color: blanchedalmond;
+  font-weight: 700;
+}
+
+.table-footer {
+  margin-top: 1em;
+}
+.movies {
+  border: 1px dashed salmon;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.movie {
+  border: 1px dashed brown;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.movie-id {
+  flex: 1;
+}
+.movie-name {
+  flex: 2;
+}
+.movie-description {
+  flex: 5;
+}
+.movie-actions {
+  flex: 2;
+}
+
+.hide-input {
+  outline: 0;
+  border: 0;
+}
+
+form > * {
+  display: block;
+  margin-top: 1em;
+}
+
+.error {
+  color: red;
+}

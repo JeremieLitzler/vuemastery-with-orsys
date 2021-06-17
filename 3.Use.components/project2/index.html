@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro VueJs 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="../../index.html">Go back to training overview</a>
+    <div id="app">
+        <ul class="movies table-header">
+            <li class="movie">
+                <!-- <p class="movie-id">#</p> -->
+                <p class="movie-name">Name</p>
+                <p class="movie-description">Description</p>
+                <p class="movie-actions">Actions</p>
+            </li>
+        </ul>
+        <ul class="movies table-body">
+            <li class="movie" v-for="movie in movies" :key="movie.id">
+                <!-- <p class="movie-id">{{ movie.id }}</p> -->
+                <p class="movie-name" v-if="!movie.modifying">{{ movie.name }}</p>
+                <input type="text" class="movie-name" v-if="movie.modifying" v-model="movie.name" />
+                <p class="movie-description" v-if="!movie.modifying">{{ movie.description }}</p>
+                <textarea class="movie-description" v-if="movie.modifying" v-model="movie.description">{{ movie.description }}</textarea>
+                <p class="movie-actions">
+                    <button class="modify-movie" @click="modifyMovie(movie)">{{ movie.modifying ? "Save" : "Modify" }}</button>
+                    <button class="delete-movie" @click="removeMovie(movie)">Delete</button>
+                </p>
+            </li>
+            <li v-if="newMovieFormDisplayed">
+                <form @submit.prevent="addMovie(name, description)" class="movie">
+                    <!-- <p>{{ maxId }}</p> -->
+                    <input tabindex="0" type=" text" class="movie-name" v-model="name" placeholder="Input the movie name" />
+                    <textarea class="movie-description" v-model="description" placeholder="Input the movie description"></textarea>
+                    <p class="movie-actions">
+                        <button class="modify-movie" @click="addMovie()">Save</button>
+                    </p>
+                </form>
+            </li>
+        </ul>
+        <p class=" error" v-if="validationError">All fields are required.</p>
+        <div class="table-footer">
+            <span v-if="movies">Number of movies: {{ movieCount }}</span>
+            <span v-else="movies">Use the button to add a new movie</span>
+            <button class="add-movie" @click="showNewMovieForm()">Add new movie</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
