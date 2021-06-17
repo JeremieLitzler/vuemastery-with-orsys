@@ -30,7 +30,7 @@ const App = {
   },
   computed: {
     maxId() {
-      return this.movies ? this.movies.length++ : 1;
+      return this.movies ? this.movies.length + 1 : 1;
     },
     movieCount() {
       return this.movies ? this.movies.length : 0;
