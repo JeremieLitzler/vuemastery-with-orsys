@@ -22,8 +22,23 @@
 
 - les `slot` sont utiles pour des modaux.
 
-- les `computed` gèrent du cache. Les `computed` ont une meilleure performance
-  - Il faut utiliser des `computed` pour un usage depuis les vues HTML.
+### `computed`
+
+- Elles gèrent du cache. Les `computed` ont une meilleure performance
+- Il faut utiliser des `computed` pour un usage depuis les vues HTML.
+
+### `watch`
+
+- Un watcher est préféré dans le cas où il n'y a pas d'impact sur la donnée dans la vue.
+- Il y a sûrement un usage avec les routes.
+
+### `mixin`
+
+- Je ne comprends pas le cas d'usage.
+
+### Components lifecycle
+
+- Voir la doc.
 
 ## Questions
 
