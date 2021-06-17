@@ -43,7 +43,7 @@ const App = {
         this.validationError = true;
         return;
       }
-      const newMovieId = this.movies ? this.movies.length++ : 0;
+      const newMovieId = this.maxId;
       console.log('New Movie Id', newMovieId);
       const newMovie = {
         id: newMovieId,
