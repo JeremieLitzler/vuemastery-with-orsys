@@ -39,6 +39,7 @@ const App = {
   methods: {
     addMovie(name, description) {
       console.log('Name', name, 'Description', description);
+      this.validationError = !this.validationError;
       if (name === undefined || description === undefined) {
         this.validationError = true;
         return;
@@ -53,6 +54,7 @@ const App = {
       };
       console.log('Movie', newMovie);
       this.movies.push(newMovie);
+      this.showNewMovieForm();
     },
     removeMovie(movieToRemove) {
       if (!movieToRemove) throw new Error('parameter movie is mandatory!');
@@ -60,8 +62,8 @@ const App = {
       const index = this.movies.findIndex(
         (movie) => movie.id === movieToRemove.id,
       );
-      console.log('Index is', index);
-      delete this.movies[index];
+      // console.log('Index is', index);
+      this.movies.splice(index, 1);
     },
     modifyMovie(movieModified) {
       if (!movieModified) throw new Error('parameter movie is mandatory!');
@@ -77,7 +79,7 @@ const App = {
       }
     },
     showNewMovieForm() {
-      this.newMovieFormDisplayed = true;
+      this.newMovieFormDisplayed = !this.newMovieFormDisplayed;
     },
   },
 };
