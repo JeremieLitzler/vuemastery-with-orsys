@@ -41,3 +41,9 @@ or
 
     - never use the default `index` in each object.
     - using `:key` allow to perform well in DOM manipulation
+
+## Questions
+
+### Quelle est la bonne pratique du refactoring des méthodes qui sont trop grandes
+
+###
