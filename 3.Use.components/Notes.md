@@ -20,6 +20,11 @@
     - L'événement est envoyé par le parent direct.
 - Il faut déclarer les templates dans le HTML en premier.
 
+- les `slot` sont utiles pour des modaux.
+
+- les `computed` gèrent du cache. Les `computed` ont une meilleure performance
+  - Il faut utiliser des `computed` pour un usage depuis les vues HTML.
+
 ## Questions
 
 ### Pourquoi doit-on utiliser un tableau plutôt qu'un objet dans `props` si le composant reçoit un objet
