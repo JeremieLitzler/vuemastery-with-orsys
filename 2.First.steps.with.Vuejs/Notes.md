@@ -45,3 +45,7 @@ or
 ## Questions
 
 ### Quelle est la bonne pratique du refactoring des méthodes qui sont trop grandes
+
+En Vue2, décomposer en méthodes ou propriétés `computed`.
+
+En Vue3, on utilise `setup` dans la logique `Composition API`.
