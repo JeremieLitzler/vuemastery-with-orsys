@@ -44,8 +44,7 @@
                 </table>
 
                 <p class="lead">
-                    <span v-if="movies.length">{{ movieCount }} film{{ movieCount > 1 ? "(s)" : "" }} au total</span>
-                    <span v-if="!movies.length">Aucun film pour le moment</span>
+                    <span>{{ movieCount }}</span>
                     <br>
                     <button @click="createMovie()" class="btn btn-primary">
                         Ajouter un nouveau film

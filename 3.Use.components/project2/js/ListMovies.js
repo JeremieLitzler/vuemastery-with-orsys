@@ -10,7 +10,11 @@ APP.component('list-movies', {
   },
   computed: {
     movieCount() {
-      return this.movies.length;
+      const count = this.movies.length;
+
+      return count > 0
+        ? `Il y a ${count} film${count > 1 ? 's' : ''}`
+        : 'Aucun film pour le moment';
     },
   },
   methods: {
